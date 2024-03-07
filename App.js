@@ -3,14 +3,25 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import IntroScreen from './../'
+import LoginScreen from './pages/LoginScreen';
+import RegistrationScreen from './pages/RegistrationScreen';
+import AuthConfirmationScreen from './pages/AuthConfirmationScreen';
+import HomeScreen from './pages/HomeScreen';
+import DashboardScreen from './pages/DashboardScreen';
+import WalkScreen from './pages/WalkScreen';
+import EndWalkScreen from './pages/EndWalkScreen';
+import MyPetsScreen from './pages/MyPetsScreen';
+import CommunityScreen from './pages/CommunityScreen';
+import ProfileScreen from './pages/ProfileScreen';
+import NearbyPeopleScreen from './pages/NearbyPeopleScreen';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Intro">
         <Stack.Screen name="Intro" component={IntroScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Registration" component={RegistrationScreen} />
@@ -29,3 +40,4 @@ const App = () => {
 };
 
 export default App;
+
