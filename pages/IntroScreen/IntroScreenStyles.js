@@ -1,15 +1,64 @@
 // introScreenStyles.js
 
 import { StyleSheet } from 'react-native';
+const colors = require("../../assets/colors")
 
 export const introScreenStyles = StyleSheet.create({
+  
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'rgba(207,210,235, 1)'
   },
-  title: {
-    fontSize: 24,
-    color: '#333333',
+  ViewTitle: {
+    position: "absolute",
+    bottom: 150,
+    width: "95%"
   },
-});
+  Title: {
+    top:150,
+    position: "absolute",
+    fontSize: 40,
+    fontWeight: "800",
+    textAlign:"center",
+    color: colors.colors.text100,
+    fontStyle: 'italic',
+  },
+  SubTitle: {
+    top: 10,
+    fontSize: 20,
+    fontWeight: "500",
+    textAlign:"center",
+    color: colors.colors.text100},
+  Button: {
+    backgroundColor: colors.colors.bg100,
+    width:"90%",
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    display: 'flex',
+    position: "absolute",
+    bottom: 50,
+    shadowColor: colors.colors.shadow,
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+    elevation: 5, // android
+  },
+    ButtonTitle: {
+      flex: 1,
+      fontSize: 19,
+      fontWeight: "500",
+      textAlign:"center",
+      color: colors.colors.text100,
+    },
+    Image: {
+      width: "100%",
+      height: "100%",
+      objectFit: "contain"
+    },
+  });
