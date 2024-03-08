@@ -62,3 +62,5 @@ export const introScreenStyles = StyleSheet.create({
       objectFit: "contain"
     },
   });
+
+  
