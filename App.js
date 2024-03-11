@@ -15,6 +15,7 @@ import MyPetsScreen from './pages/MyPetsScreen';
 import CommunityScreen from './pages/CommunityScreen';
 import ProfileScreen from './pages/ProfileScreen';
 import NearbyPeopleScreen from './pages/NearbyPeopleScreen';
+import Constats from "expo-constants"
 
 const Stack = createStackNavigator();
 

@@ -9,13 +9,17 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@clerk/clerk-expo": "^0.20.9",
+    "@clerk/clerk-react": "^4.30.7",
     "@expo-google-fonts/fredoka-one": "^0.2.3",
     "@react-native-google-signin/google-signin": "^11.0.0",
     "@react-navigation/native": "^6.1.14",
     "@react-navigation/stack": "^6.3.25",
     "expo": "^49.0.23",
+    "expo-auth-session": "^5.4.0",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
+    "react-dom": "^18.2.0",
     "react-native": "0.72.10",
     "react-native-elements": "^3.4.3",
     "react-native-fbsdk": "^3.0.0",
