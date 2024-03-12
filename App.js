@@ -4,7 +4,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import IntroScreen from './pages/IntroScreen/IntroScreen';
-import LoginScreen from './pages/LoginScreen';
+import LoginScreen from './pages/LoginScreen/LoginScreen';
 import RegistrationScreen from './pages/RegistrationScreen/RegistrationScreen';
 import AuthConfirmationScreen from './pages/AuthConfirmationScreen';
 import HomeScreen from './pages/HomeScreen';
@@ -15,7 +15,6 @@ import MyPetsScreen from './pages/MyPetsScreen';
 import CommunityScreen from './pages/CommunityScreen';
 import ProfileScreen from './pages/ProfileScreen';
 import NearbyPeopleScreen from './pages/NearbyPeopleScreen';
-import Constats from "expo-constants"
 
 const Stack = createStackNavigator();
 
@@ -24,7 +23,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Intro">
         <Stack.Screen name="Intro" component={IntroScreen} options={{headerShown:false}}/>
-        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}} />
         <Stack.Screen name="Registration" component={RegistrationScreen} options={{headerShown:false}}  />
         <Stack.Screen name="AuthConfirmation" component={AuthConfirmationScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />

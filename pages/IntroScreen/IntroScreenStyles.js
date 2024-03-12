@@ -13,7 +13,7 @@ export const introScreenStyles = StyleSheet.create({
   ViewTitle: {
     position: "absolute",
     bottom: 150,
-    width: "95%"
+    width: "90%"
   },
   Title: {
     top:150,
@@ -33,10 +33,11 @@ export const introScreenStyles = StyleSheet.create({
   Button: {
     backgroundColor: colors.colors.bg100,
     width:"90%",
-    borderRadius: 20,
+    height: 50,
+    borderRadius: 100,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    padding: 10,
     display: 'flex',
     position: "absolute",
     bottom: 50,

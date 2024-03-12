@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Animated, Alert } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Animated, Easing, Alert, CheckBox, Modal, ScrollView } from 'react-native';
+import * as yup from 'yup'; // Importando yup para validação
 import { RegistrationScreenStyles } from './RegistrationScreenStyles';
+import { Divider } from 'react-native-elements';
 import { Path, Svg } from 'react-native-svg';
-import { useSignUp } from "@clerk/clerk-expo"; // Import the useSignUp hook
-import * as yup from 'yup'; // Importing yup for validation
+import TermsAndConditionsModal from '../../components/TermsAndConditionsModal/TermsAndConditionsModal';
+import { useNavigation } from '@react-navigation/native';
 
 const RegistrationScreen = () => {
-  const { isLoaded, signUp } = useSignUp(); // Initialize the useSignUp hook
+  const navigate = useNavigation();
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [gender, setGender] = useState('prefer_not_to_say');
+  const [imageScale] = useState(new Animated.Value(1));
   const [isChecked, setIsChecked] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false); // Estado para controlar a visibilidade do modal
 
   const [errors, setErrors] = useState({
     fullName: '',
@@ -19,53 +23,59 @@ const RegistrationScreen = () => {
     password: '',
   });
 
+  const closeModal = () => {
+    setModalVisible(false);
+  }
+  const openModal = () => {
+    setModalVisible(true);
+  }
+
   const handleCheck = () => {
     setIsChecked(!isChecked);
   }
 
   const handleRegister = async () => {
     try {
-      if (!isLoaded) {
-        return;
-      }
-
       if (!isChecked) {
         Alert.alert('Validation Error', 'You must accept the Terms and Conditions.');
         return;
       }
 
-      // Validation of inputs
+      // Validação dos inputs
       const schema = yup.object().shape({
         fullName: yup.string().required('* Full name is required'),
         email: yup.string().matches(/^[a-z].*@.*\..*$/, '* Invalid email').required('* Email is required'),
         password: yup.string().min(8, '* Password must be at least 8 characters').required('* Password is required'),
       });
       await schema.validate({ fullName, email, password }, { abortEarly: false });
-
-      // Sign up the user
-      await signUp.create({
-        firstName: fullName, // Assuming the full name is split into first name and last name in your Clerk configuration
-        lastName: '', // Assuming no last name in your Clerk configuration
-        emailAddress: email,
-        password: password,
-      });
-
-      // Prepare email address verification
-      await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
-
-      // Reset input fields after successful sign-up
-      setFullName('');
-      setEmail('');
-      setPassword('');
-      setGender('prefer_not_to_say');
+      // Implemente sua lógica de registro aqui
+      console.log('Registering...');
+      console.log('Full Name:', fullName);
+      console.log('Email:', email);
+      console.log('Password:', password);
+      console.log('Gender:', gender);
     } catch (error) {
-      // Update error states with individual error messages
+      // Atualiza os estados de erro com mensagens de erro individuais
       const newErrors = {};
       error.inner.forEach(err => {
         newErrors[err.path] = err.message;
       });
       setErrors(newErrors);
       Alert.alert('Validation Error', error.message);
+    }
+  };
+
+  // Função para renderizar a imagem com base no gênero selecionado
+  const renderUserImage = () => {
+    switch (gender) {
+      case 'male':
+        return require('../../assets/Male.png');
+      case 'female':
+        return require('../../assets/Female.png');
+      case 'prefer_not_to_say':
+        return require('../../assets/PreferNotToSay.png');
+      default:
+        return require('../../assets/PreferNotToSay.png');
     }
   };
 
@@ -76,6 +86,9 @@ const RegistrationScreen = () => {
         <Text style={RegistrationScreenStyles.SubTitle}>
           Account creation
         </Text>
+      </View>
+      <View style={RegistrationScreenStyles.ViewImageUser}>
+        <Animated.Image source={renderUserImage()} style={{ width: 50, height: 50, transform: [{ scale: imageScale }] }} />
       </View>
       {errors.fullName !== '' && <Text style={RegistrationScreenStyles.ErrorText}>{errors.fullName}</Text>}
       <TextInput
@@ -91,7 +104,7 @@ const RegistrationScreen = () => {
         value={email}
         onChangeText={text => setEmail(text.toLowerCase())}
         keyboardType="email-address"
-        autoCapitalize="none" // Disable auto capitalize
+        autoCapitalize="none" // Desativa o auto capitalize
       />
       {errors.password !== '' && <Text style={RegistrationScreenStyles.ErrorText}>{errors.password}</Text>}
       <TextInput
@@ -134,9 +147,18 @@ const RegistrationScreen = () => {
         </TouchableOpacity>
         <Text style={{ marginLeft: 10 }}>I agree to the Terms and Conditions</Text>
       </View>
+      <View style={{ flexDirection: 'row', alignItems: 'center', width: "100%", paddingTop: 10, paddingBottom: 10 }}>
+        <TouchableOpacity onPress={() => setModalVisible(true)}>
+          <Text style={{ color: 'blue' }}>Read terms and conditions</Text>
+        </TouchableOpacity>
+        <TermsAndConditionsModal modalVisible={modalVisible} closeModal={closeModal} />
+      </View>
       <TouchableOpacity onPress={handleRegister} style={RegistrationScreenStyles.ButtonDefault} >
         <Text style={RegistrationScreenStyles.TextDefault}>Create my account</Text>
       </TouchableOpacity>
+      <Text style={[RegistrationScreenStyles.TextDefault, { marginTop: 10 , color: "blue" }]}>
+        You have an account? <Text onPress={() => navigate.navigate('Login')}>Login</Text>
+      </Text>
     </View>
   );
 };

@@ -9,6 +9,7 @@ export const RegistrationScreenStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+    backgroundColor: colors.colors.bg100,
   },
   ContainerTitles: {
     width: '100%',
@@ -45,12 +46,14 @@ export const RegistrationScreenStyles = StyleSheet.create({
   },
   Inputs: {
     width: '100%',
-    height: 40,
+    height: 50,
     margin: 10,
     padding: 10,
     borderWidth: 1,
     borderColor: '#ccc',
-    borderRadius: 5,
+    backgroundColor: colors.colors.primary300,
+    borderRadius: 100,
+    textAlign: 'center',
   },
   ViewGender: {
     flexDirection: 'row',
@@ -76,18 +79,29 @@ export const RegistrationScreenStyles = StyleSheet.create({
   RadioChoiceDefault: {
     width: 10, height: 10, borderRadius: 5, backgroundColor: '#8aaeff'
   },
-  ContainerSocialLogin:{
+  ContainerSocialLogin: {
     marginTop: 20,
     flexDirection: "row",
     gap: 30,
   },
   ButtonDefault: {
-    width: '100%',
-    height: 40,
-    backgroundColor: '#66B3FF',
+
+    backgroundColor: colors.colors.primary200,
+    width: "100%",
+    height: 50,
+    borderRadius: 100,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 5,
+    padding: 10,
+    display: 'flex',
+    shadowColor: colors.colors.shadow,
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+    elevation: 5, // android
   },
   ErrorText: {
     color: "red",
