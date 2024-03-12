@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 const colors = require("../../assets/colors")
 
 export const introScreenStyles = StyleSheet.create({
-  
+
   container: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -16,11 +16,11 @@ export const introScreenStyles = StyleSheet.create({
     width: "90%"
   },
   Title: {
-    top:150,
+    top: 150,
     position: "absolute",
     fontSize: 40,
     fontWeight: "800",
-    textAlign:"center",
+    textAlign: "center",
     color: colors.colors.text100,
     fontStyle: 'italic',
   },
@@ -28,11 +28,12 @@ export const introScreenStyles = StyleSheet.create({
     top: 10,
     fontSize: 20,
     fontWeight: "500",
-    textAlign:"center",
-    color: colors.colors.text100},
+    textAlign: "center",
+    color: colors.colors.text100
+  },
   Button: {
     backgroundColor: colors.colors.bg100,
-    width:"90%",
+    width: "90%",
     height: 50,
     borderRadius: 100,
     justifyContent: 'center',
@@ -50,18 +51,17 @@ export const introScreenStyles = StyleSheet.create({
     shadowRadius: 4.65,
     elevation: 5, // android
   },
-    ButtonTitle: {
-      flex: 1,
-      fontSize: 19,
-      fontWeight: "500",
-      textAlign:"center",
-      color: colors.colors.text100,
-    },
-    Image: {
-      width: "100%",
-      height: "100%",
-      objectFit: "contain"
-    },
-  });
+  ButtonTitle: {
+    flex: 1,
+    fontSize: 19,
+    fontWeight: "500",
+    textAlign: "center",
+    color: colors.colors.text100,
+  },
+  Image: {
+    width: "100%",
+    height: "100%",
+    objectFit: "contain"
+  },
+});
 
-  

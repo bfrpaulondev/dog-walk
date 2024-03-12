@@ -13,14 +13,33 @@
       "**/*"
     ],
     "ios": {
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "buildNumber": "1",
+      "bundleIdentifier": "com.DyeWolf.dogwalkers",
       "supportsTablet": true
     },
     "android": {
+      "package": "com.DyeWolf.dogwalkers",
+      "versionCode": 1,
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-    }
+    },
+    "plugins": [
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth",
+      "@react-native-firebase/crashlytics",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ]
   }
 }

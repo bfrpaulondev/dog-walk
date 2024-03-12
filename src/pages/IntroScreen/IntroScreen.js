@@ -12,11 +12,11 @@ import { View, Text, Image, Pressable } from 'react-native';
 import { introScreenStyles } from './IntroScreenStyles.js'
 import { useNavigation } from '@react-navigation/native';
 // Importa a imagem da tela de introdução
-const IntroImage = require('./../../assets/Intro.png')
+const IntroImage = require('../../assets/Intro.png')
 
 
 const IntroScreen = () => {
-const navigation = useNavigation();
+  const navigation = useNavigation();
 
   const handleNavigate = () => {
     navigation.navigate('Registration');

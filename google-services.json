@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "883827671795",
+    "project_id": "dogwalkers-4b63b",
+    "storage_bucket": "dogwalkers-4b63b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883827671795:android:bf4f4dec48a8e85a382d86",
+        "android_client_info": {
+          "package_name": "com.DyeWolf.dogwalkers"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4qdBWxAyisDv2Cce8FrQE5ANdd_8DXuw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

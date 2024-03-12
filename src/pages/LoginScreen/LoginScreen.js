@@ -4,6 +4,7 @@ import LottieView from 'lottie-react-native';
 import Toast from 'react-native-toast-message';
 import { LoginScreenStyles } from './LoginScreenStyles';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const colors = require("../../assets/colors")
 const LoginScreen = () => {
@@ -11,7 +12,7 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
-
+  const navigation = useNavigation();
   const handleEmailChange = (text) => {
     // Converte apenas a primeira letra para minúscula
     const formattedEmail = text.charAt(0).toLowerCase() + text.slice(1);
@@ -30,6 +31,7 @@ const LoginScreen = () => {
         type: 'success',
         text1: 'Login Successful',
       });
+      navigation.navigate('AuthConfirmation');
     } else {
       // Exibe uma mensagem de erro
       Toast.show({
@@ -63,7 +65,7 @@ const LoginScreen = () => {
       <View>
         <LottieView
           style={styles.animation}
-          source={require('./../../assets/Animation2.json')}
+          source={require('../../assets/Animation2.json')}
           autoPlay
           loop
         />
@@ -99,7 +101,7 @@ const LoginScreen = () => {
           secureTextEntry={!showPassword} // Oculta a senha se showPassword for false
         />
         <TouchableOpacity onPress={() => setShowPassword(!showPassword)} style={{
-          position:"absolute",
+          position: "absolute",
           right: 20,
         }}>
           <MaterialIcons name={showPassword ? 'visibility' : 'visibility-off'} size={24} color="black" />

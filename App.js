@@ -3,18 +3,17 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import IntroScreen from './pages/IntroScreen/IntroScreen';
-import LoginScreen from './pages/LoginScreen/LoginScreen';
-import RegistrationScreen from './pages/RegistrationScreen/RegistrationScreen';
-import AuthConfirmationScreen from './pages/AuthConfirmationScreen';
-import HomeScreen from './pages/HomeScreen';
-import DashboardScreen from './pages/DashboardScreen';
-import WalkScreen from './pages/WalkScreen';
-import EndWalkScreen from './pages/EndWalkScreen';
-import MyPetsScreen from './pages/MyPetsScreen';
-import CommunityScreen from './pages/CommunityScreen';
-import ProfileScreen from './pages/ProfileScreen';
-import NearbyPeopleScreen from './pages/NearbyPeopleScreen';
+import IntroScreen  from './src/pages/IntroScreen/IntroScreen';
+import LoginScreen from './src/pages/LoginScreen/LoginScreen';
+import RegistrationScreen from './src/pages/RegistrationScreen/RegistrationScreen';
+import HomeScreen from './src/pages/HomeScreen/HomeScreen';
+import WalkScreen from './src/pages/WalkScreen/WalkScreen';
+import EndWalkScreen from './src/pages/EndWalkScreen/EndWalkScreen';
+import MyPetsScreen from './src/pages/MyPetsScreen/MyPetsScreen';
+import ProfileScreen from './src/pages/ProfileScreen/ProfileScreen';
+import NearbyPeopleScreen from './src/pages/NearbyPeopleScreen/NearbyPeopleScreen';
+import DashboardScreen from './src/pages/DashboardScreen/DashboardScreen';
+import CommunityScreen from './src/pages/CommunityScreen/CommunityScreen';
 
 const Stack = createStackNavigator();
 
@@ -25,7 +24,6 @@ const App = () => {
         <Stack.Screen name="Intro" component={IntroScreen} options={{headerShown:false}}/>
         <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}} />
         <Stack.Screen name="Registration" component={RegistrationScreen} options={{headerShown:false}}  />
-        <Stack.Screen name="AuthConfirmation" component={AuthConfirmationScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Dashboard" component={DashboardScreen} />
         <Stack.Screen name="Walk" component={WalkScreen} />
